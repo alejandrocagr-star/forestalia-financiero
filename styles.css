@@ -1,0 +1,470 @@
+
+/* ==========================================
+   FORESTALIA - GAMIFICACIÓN COMPLIANCE
+   Terrenos y Planificación de Desarrollo
+   VERSIÓN FINAL
+========================================== */
+
+:root {
+  --fondo: #081827;
+  --fondo-secundario: #10283c;
+  --tarjeta: #173349;
+  --verde: #8bc53f;
+  --blanco: #ffffff;
+  --texto: #dce6ec;
+  --gris: #9cafbc;
+  --borde: #365166;
+  --rojo: #f07171;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fondo);
+  color: var(--blanco);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   CABECERA Y LOGO
+========================================== */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 4%;
+  min-height: 108px;
+  background: var(--fondo-secundario);
+  border-bottom: 3px solid var(--verde);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  min-height: 75px;
+}
+
+.brand-logo {
+  display: none;
+  width: auto;
+  max-width: 245px;
+  max-height: 72px;
+  object-fit: contain;
+}
+
+.brand-fallback h1 {
+  margin: 0;
+  color: var(--verde);
+  font-size: 32px;
+  letter-spacing: 3px;
+}
+
+.brand-fallback p {
+  margin: 6px 0 0;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.header-info {
+  font-size: 17px;
+  color: var(--texto);
+  text-align: right;
+}
+
+/* ==========================================
+   PANTALLAS
+========================================== */
+
+.screen {
+  display: none;
+  flex: 1;
+  width: 100%;
+  padding: 20px 24px;
+}
+
+.screen.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   BIENVENIDA
+========================================== */
+
+.welcome-content {
+  width: 100%;
+  max-width: 1050px;
+  text-align: center;
+}
+
+.tag,
+.case-label {
+  display: inline-block;
+  color: var(--verde);
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.welcome-content h2 {
+  font-size: clamp(42px, 6vw, 76px);
+  margin: 22px 0 12px;
+}
+
+.welcome-content h3 {
+  font-size: clamp(24px, 3vw, 35px);
+  color: var(--verde);
+  margin: 0 0 25px;
+}
+
+.welcome-content p {
+  color: var(--texto);
+  font-size: 25px;
+  line-height: 1.45;
+}
+
+.welcome-details {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.welcome-details span {
+  padding: 14px 20px;
+  background: var(--fondo-secundario);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+/* ==========================================
+   BOTONES
+========================================== */
+
+.btn {
+  padding: 15px 27px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn.primary {
+  background: var(--verde);
+  color: #102016;
+}
+
+.btn.primary:hover:not(:disabled) {
+  background: #a7db60;
+  transform: translateY(-2px);
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--blanco);
+  border: 2px solid var(--borde);
+}
+
+.btn.secondary:hover {
+  border-color: var(--verde);
+  color: var(--verde);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   PANTALLA DE PREGUNTAS
+========================================== */
+
+.quiz-container {
+  width: 100%;
+  max-width: 1300px;
+}
+
+.quiz-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--verde);
+}
+
+.progress-container {
+  height: 8px;
+  background: var(--borde);
+  border-radius: 20px;
+  margin: 12px 0 18px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--verde);
+  transition: width 0.4s;
+}
+
+.question-card {
+  padding: 23px 30px;
+  background: var(--fondo-secundario);
+  border: 1px solid var(--borde);
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.question-card h2 {
+  font-size: clamp(27px, 3vw, 36px);
+  margin: 12px 0;
+}
+
+.question-card p {
+  color: var(--texto);
+  font-size: 24px;
+  line-height: 1.35;
+  margin: 12px 0 5px;
+}
+
+/* ==========================================
+   OPCIONES DE RESPUESTA
+========================================== */
+
+.answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.answer {
+  padding: 17px 20px;
+  background: var(--tarjeta);
+  color: var(--blanco);
+  border: 2px solid var(--borde);
+  border-radius: 12px;
+  font-size: 21px;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s;
+  min-height: 95px;
+}
+
+.answer:hover:not(:disabled) {
+  border-color: var(--verde);
+  background: #20445b;
+}
+
+.answer.selected {
+  border-color: var(--verde);
+  background: #294c38;
+}
+
+.answer.correct {
+  border-color: var(--verde);
+  background: #244d31;
+}
+
+.answer.incorrect {
+  border-color: var(--rojo);
+  background: #512d35;
+}
+
+.quiz-actions,
+.resolution-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 18px;
+}
+
+/* ==========================================
+   PANTALLA DE RESOLUCIÓN
+========================================== */
+
+.resolution-container {
+  width: 100%;
+  max-width: 1250px;
+  text-align: center;
+}
+
+.result-badge {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.result-badge.success {
+  background: #244d31;
+  color: #b7ee8a;
+}
+
+.result-badge.error {
+  background: #512d35;
+  color: #ffb2b2;
+}
+
+.resolution-container h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  margin: 12px 0;
+}
+
+.resolution-container > p {
+  color: var(--texto);
+  font-size: 23px;
+  line-height: 1.35;
+  margin: 15px 0;
+}
+
+.explanations {
+  display: grid;
+  gap: 11px;
+  margin: 22px 0;
+  text-align: left;
+}
+
+.explanation {
+  padding: 15px 22px;
+  border-radius: 10px;
+  background: var(--fondo-secundario);
+  border-left: 5px solid var(--borde);
+  line-height: 1.35;
+  font-size: 20px;
+}
+
+.explanation.correct {
+  border-left-color: var(--verde);
+}
+
+.explanation.incorrect {
+  border-left-color: var(--rojo);
+}
+
+.explanation strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ==========================================
+   RESULTADO FINAL
+========================================== */
+
+.final-container {
+  width: 100%;
+  max-width: 850px;
+  text-align: center;
+}
+
+.final-container h2 {
+  font-size: clamp(40px, 5vw, 65px);
+  margin: 20px 0;
+}
+
+.final-container p {
+  color: var(--texto);
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.final-score {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: var(--fondo-secundario);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 440px;
+}
+
+.final-score span {
+  color: var(--gris);
+  font-size: 19px;
+}
+
+.final-score strong {
+  font-size: 75px;
+  color: var(--verde);
+}
+
+/* ==========================================
+   PIE DE PÁGINA
+========================================== */
+
+.footer {
+  padding: 12px;
+  text-align: center;
+  color: var(--gris);
+  font-size: 13px;
+  background: var(--fondo-secundario);
+}
+
+/* ==========================================
+   ADAPTACIÓN A OTRAS PANTALLAS
+========================================== */
+
+@media (max-width: 800px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .header-info {
+    text-align: center;
+  }
+
+  .screen {
+    padding: 18px 12px;
+  }
+
+  .answers {
+    grid-template-columns: 1fr;
+  }
+
+  .question-card {
+    padding: 18px;
+  }
+
+  .question-card p {
+    font-size: 20px;
+  }
+
+  .answer {
+    font-size: 19px;
+    min-height: auto;
+  }
+
+  .explanation {
+    font-size: 18px;
+  }
+
+  .quiz-top {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forestalia | Reto Compliance Financiero</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <img
+          src="logo-forestalia.png"
+          alt="Forestalia"
+          class="brand-logo"
+          style="display:block"
+        >
+      </div>
+      <div class="header-info">
+        Financiero | Formación Compliance
+      </div>
+    </header>
+
+    <main id="welcomeScreen" class="screen active">
+      <div class="welcome-content">
+        <span class="tag">ISO 37301 · COMPLIANCE</span>
+        <h2>RETO COMPLIANCE</h2>
+        <h3>Departamento Financiero</h3>
+        <p>
+          ¿Sabrías identificar los riesgos de cumplimiento
+          en situaciones reales del área financiera?
+        </p>
+        <div class="welcome-details">
+          <span>9 casos prácticos</span>
+          <span>4 opciones por pregunta</span>
+          <span>Resoluciones explicadas</span>
+        </div>
+        <button class="btn primary" id="startBtn">
+          COMENZAR RETO
+        </button>
+      </div>
+    </main>
+
+    <main id="quizScreen" class="screen">
+      <div class="quiz-container">
+        <div class="quiz-top">
+          <span id="caseCounter">CASO PRÁCTICO 1 DE 9</span>
+          <span id="scoreCounter">PUNTUACIÓN: 0</span>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="question-card">
+          <span class="case-label">SITUACIÓN PRÁCTICA</span>
+          <h2 id="questionTitle"></h2>
+          <p id="questionText"></p>
+        </div>
+        <div class="answers" id="answersContainer"></div>
+        <div class="quiz-actions">
+          <button class="btn secondary" id="quizHomeBtn">
+            VOLVER AL INICIO
+          </button>
+          <button class="btn primary" id="checkBtn" disabled>
+            COMPROBAR RESPUESTA
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <main id="resolutionScreen" class="screen">
+      <div class="resolution-container">
+        <div id="resultBadge" class="result-badge"></div>
+        <h2 id="resolutionTitle"></h2>
+        <p id="resolutionIntro"></p>
+        <div class="explanations" id="explanationsContainer"></div>
+        <div class="resolution-actions">
+          <button class="btn secondary" id="resolutionHomeBtn">
+            VOLVER AL INICIO
+          </button>
+          <button class="btn primary" id="nextBtn">
+            SIGUIENTE CASO
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <main id="finalScreen" class="screen">
+      <div class="final-container">
+        <span class="tag">RETO FINALIZADO</span>
+        <h2>¡ENHORABUENA!</h2>
+        <p>
+          Has completado el reto de Compliance Financiero.
+        </p>
+        <div class="final-score">
+          <span>RESULTADO FINAL</span>
+          <strong id="finalScore">0 / 9</strong>
+        </div>
+        <p id="finalMessage"></p>
+        <button class="btn primary" id="restartBtn">
+          VOLVER A EMPEZAR
+        </button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      FORESTALIA | Formación Compliance · ISO 37301
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
